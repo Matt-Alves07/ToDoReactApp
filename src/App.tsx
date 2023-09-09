@@ -25,11 +25,9 @@ function App() {
 
   const hideOrShowModal = (display: boolean) => {
     const modal = document.getElementById("modal");
-    if (display) {
-      modal!.classList.remove("hide");
-    } else {
-      modal!.classList.add("hide");
-    }
+    display
+      ? modal!.classList.remove("hide")
+      : modal!.classList.add("hide");
   };
 
   const editTask = (task: ITask): void => {

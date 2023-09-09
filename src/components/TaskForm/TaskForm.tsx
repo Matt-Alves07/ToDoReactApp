@@ -1,7 +1,6 @@
 import styles from "./TaskForm.module.css";
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 
-// interfaces
 import { ITask } from "../../interfaces/Task";
 
 interface Props {
@@ -33,11 +32,8 @@ const TaskForm = ({
 
   const addTaskHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(handleUpdate);
     if (taskList) {
       if (handleUpdate) {
-        console.log(title);
-        console.log(difficulty);
         handleUpdate(id, title, difficulty);
       } else {
         const id = Math.floor(Math.random() * 1000);
@@ -53,11 +49,9 @@ const TaskForm = ({
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === "title") {
-      setTitle(e.target.value);
-    } else {
-      setDifficulty(parseInt(e.target.value));
-    }
+    e.target.name === "title"
+      ? setTitle(e.target.value)
+      : setDifficulty(parseInt(e.target.value));
   };
 
   return (
